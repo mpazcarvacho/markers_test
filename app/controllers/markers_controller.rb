@@ -24,17 +24,23 @@ class MarkersController < ApplicationController
   def create
     @marker = Marker.new(marker_params)
 
-    respond_to do |format|
-      # format.js {render layout: false}
-
-      if @marker.save
-        format.html { redirect_to marker_url(@marker), notice: "Marker was successfully created." }
-        format.json { render :show, status: :created, location: @marker }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @marker.errors, status: :unprocessable_entity }
-      end
+    unless @marker.save
+      render json: @marker.errors, status: :unprocessable_entity
     end
+    
+    # render json: @instrument.to_json
+
+    # respond_to do |format|
+    #   # format.js {render layout: false}
+
+    #   if @marker.save
+    #     format.html { redirect_to marker_url(@marker), notice: "Marker was successfully created." }
+    #     format.json { render :show, status: :created, location: @marker }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @marker.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /markers/1 or /markers/1.json
@@ -68,6 +74,6 @@ class MarkersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def marker_params
-      params.require(:marker).permit(:title, :url, category_markers_attributes: [ :id, :category_id, :_destroy] )
+      params.require(:marker).permit(:title, :url, category_markers_attributes: [ :id, :category_id, :_destroy], marker_types_attributes: [:id, :type_id, :_destroy] )
     end
 end

@@ -1,0 +1,7 @@
+let marker_title = document.createTextNode('<%= @marker.title%>')
+let div = document.createElement('div')
+
+<%# TODO change place to show new marker added %>
+div.appendChild(marker_title)
+document.body.appendChild(div)
+console.log('<%=@marker.title%>')

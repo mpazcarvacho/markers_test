@@ -1,0 +1,24 @@
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Category Name</th>
+            <th scope="col">Markers</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%# TODO go throug parents. add buttons to show children only public %>
+          <% @categories.each do |category|%>
+          <tr>
+            <td><%= category.name%></td>
+            <td>
+              <ul>
+              <% marker_for_category(category).each do |m| %>
+                <li><a href="<% m.marker.url%>"><%=m.marker.title%></a></li>
+              <%end%>
+              </ul>
+            </td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+    

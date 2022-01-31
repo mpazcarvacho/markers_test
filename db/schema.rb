@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_214048) do
+ActiveRecord::Schema.define(version: 2022_01_31_001020) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -28,18 +28,18 @@ ActiveRecord::Schema.define(version: 2022_01_30_214048) do
     t.index ["marker_id", "category_id"], name: "index_category_markers_on_marker_id_and_category_id"
   end
 
+  create_table "marker_types", force: :cascade do |t|
+    t.integer "marker_id", null: false
+    t.integer "type_id", null: false
+    t.index ["marker_id", "type_id"], name: "index_marker_types_on_marker_id_and_type_id"
+    t.index ["type_id", "marker_id"], name: "index_marker_types_on_type_id_and_marker_id"
+  end
+
   create_table "markers", force: :cascade do |t|
     t.string "title"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "markers_types", id: false, force: :cascade do |t|
-    t.integer "marker_id", null: false
-    t.integer "type_id", null: false
-    t.index ["marker_id", "type_id"], name: "index_markers_types_on_marker_id_and_type_id"
-    t.index ["type_id", "marker_id"], name: "index_markers_types_on_type_id_and_marker_id"
   end
 
   create_table "types", force: :cascade do |t|

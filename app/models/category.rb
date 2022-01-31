@@ -8,4 +8,8 @@ class Category < ApplicationRecord
   
   belongs_to :parent, class_name: "Category", optional: :true
 
+  validates :name, presence: true, uniqueness: :true
+
+  # TODO CREATE METHOD TO CHANGE PRIVACY SETTINGS OF CHILDREN
+  # after_save :update_privacy
 end

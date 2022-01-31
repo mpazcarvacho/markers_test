@@ -1,0 +1,10 @@
+  <div class='nested-fields'>
+
+    <%# show categories %>
+
+    <%= f.select :type_id, types_for_select, {}, class: 'custom-select mb-3 form-select' %>
+<%# 
+    <%= f.collection_check_boxes :category_id, categories_for_checkboxes, :id, :name%> 
+
+    <%= link_to_remove_association "remove type", f %>
+  </div>

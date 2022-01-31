@@ -1,17 +1,34 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 
-<%= form_with model: @category do |f|%>
-  <div class="form-group">
-    <%= f.label :name, class: "form-label" %>
-    <%= f.text_field :name%>
-  
-  </div>
-  <div class="form-group">
-    <%= f.label :private%>
-    <%= f.check_box :private%>
-  
-  </div>
-  <%= f.submit %>
 
-<%end%>
+<div class=container>
+  <div class="row">
+    <div class="col-4">
+      <%= button_to "Add Marker", @marker, remote: true, class: "btn btn-success" %>
+      <div id="new_marker">
+        <%= render '/markers/form', marker: @marker %>
+        
+      </div>
+
+      <hr>
+
+      <%= button_to "Add Category", @category, remote: true, class: "btn btn-success"%>
+      <div id="new_category">
+
+      </div>
+
+      <hr>
+
+      <%= button_to "Add Type", @type, remote: true, class: "btn btn-success"%>
+      <div id="new_type">
+
+</div>
+
+    </div>
+    <div class="col-8">
+      <%= render 'table' %>
+    </div>
+  </div>
+</div>
+
