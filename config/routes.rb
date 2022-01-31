@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'menu/index'
   get 'home/index'
+  get 'home/chart'
   resources :types
   resources :categories
   resources :markers

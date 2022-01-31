@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require chartkick
+//= require highcharts
 //= require rails-ujs
 //= require cocoon
 //= require activestorage

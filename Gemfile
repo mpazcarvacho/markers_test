@@ -67,3 +67,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # DONE Gem added for nested forms
 gem "cocoon"
 
+gem "faker", "~> 2.19"
+
+gem 'chartkick'
