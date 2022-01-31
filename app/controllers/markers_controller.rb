@@ -4,6 +4,7 @@ class MarkersController < ApplicationController
   # GET /markers or /markers.json
   def index
     @markers = Marker.all
+    @categories = Category.all
   end
 
   # GET /markers/1 or /markers/1.json
@@ -24,6 +25,8 @@ class MarkersController < ApplicationController
     @marker = Marker.new(marker_params)
 
     respond_to do |format|
+      # format.js {render layout: false}
+
       if @marker.save
         format.html { redirect_to marker_url(@marker), notice: "Marker was successfully created." }
         format.json { render :show, status: :created, location: @marker }
@@ -65,6 +68,6 @@ class MarkersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def marker_params
-      params.require(:marker).permit(:title, :url)
+      params.require(:marker).permit(:title, :url, category_markers_attributes: [ :id, :category_id, :_destroy] )
     end
 end

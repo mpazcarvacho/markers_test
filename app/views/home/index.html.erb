@@ -1,2 +1,17 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+
+<%= form_with model: @category do |f|%>
+  <div class="form-group">
+    <%= f.label :name, class: "form-label" %>
+    <%= f.text_field :name%>
+  
+  </div>
+  <div class="form-group">
+    <%= f.label :private%>
+    <%= f.check_box :private%>
+  
+  </div>
+  <%= f.submit %>
+
+<%end%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_29_181059) do
+ActiveRecord::Schema.define(version: 2022_01_30_214048) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 2022_01_29_181059) do
     t.index ["parent_id"], name: "index_categories_on_parent_id"
   end
 
-  create_table "categories_markers", id: false, force: :cascade do |t|
+  create_table "category_markers", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "marker_id", null: false
-    t.index ["category_id", "marker_id"], name: "index_categories_markers_on_category_id_and_marker_id"
-    t.index ["marker_id", "category_id"], name: "index_categories_markers_on_marker_id_and_category_id"
+    t.index ["category_id", "marker_id"], name: "index_category_markers_on_category_id_and_marker_id"
+    t.index ["marker_id", "category_id"], name: "index_category_markers_on_marker_id_and_category_id"
   end
 
   create_table "markers", force: :cascade do |t|

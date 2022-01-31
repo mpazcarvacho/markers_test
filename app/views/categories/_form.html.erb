@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field mb-3">
+    <%= form.label :name, class:"form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :private %>
-    <%= form.check_box :private %>
+  <div class="field mb-3 form-check">
+    <%= form.check_box :private, class:"form-check-input" %>
+    <%= form.label :private, class:"form-check-label" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create Category', class: "mb-3 btn btn-success" %>
   </div>
 <% end %>
