@@ -6,7 +6,6 @@
           </tr>
         </thead>
         <tbody id="tbody">
-        <%# TODO go throug parents. add buttons to show children only public %>
         
           
             <% @categories.each do |category|%>
@@ -15,14 +14,15 @@
               <td>
                 <ul>
                 <% marker_for_category(category).each do |m| %>
-                
+                <div id="list">
                   <li id='mark-<%=m.marker.id%>'><a href="<% m.marker.url%>"><%=m.marker.title + '         |'%>  </a>
                 
-                  <%= link_to 'show', markers_path(m), remote: true %>
-                  
+                  <%= link_to 'show', m.marker, remote: true %>
                   <%= link_to 'edit', edit_marker_path(m), remote: true %>
-                  <%= link_to 'destroy', marker_path(m), remote: true, method: :delete %>
+                  <%= link_to 'destroy', marker_path(m), data: {remote: true, confirm: 'Are you sure?', method: :delete} %>
                 </li>
+                
+                </div>
                 
                 <%end%>
                 </ul>

@@ -18,7 +18,7 @@
 
   <div class="field mb-3">
     <%= form.label :url, class:"form-label" %>
-    <%= form.text_field :url, class: "form-control" %>
+    <%= form.url_field :url, class: "form-control", id:"url_text" %>
   </div>
   <hr>
 <%# DONE add cocoon for categories%>
@@ -46,6 +46,6 @@
 
 
   <div class="actions">
-    <%= form.submit'Create Marker', class: "mb-3 btn btn-success mt-3" %>
+    <%= form.submit 'Create Marker', data: {confirm: 'Are you sure?'}, class: "mb-3 btn btn-success mt-3" %>
   </div>
 <% end %>

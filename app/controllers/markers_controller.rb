@@ -5,6 +5,8 @@ class MarkersController < ApplicationController
   def index
     @markers = Marker.all
     @categories = Category.all
+    @marker_types = MarkerType.all
+    @types = Type.all
   end
 
   # GET /markers/1 or /markers/1.json
@@ -47,25 +49,26 @@ class MarkersController < ApplicationController
 
   # PATCH/PUT /markers/1 or /markers/1.json
   def update
-    respond_to do |format|
-      if @marker.update(marker_params)
-        format.html { redirect_to marker_url(@marker), notice: "Marker was successfully updated." }
-        format.json { render :show, status: :ok, location: @marker }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @marker.errors, status: :unprocessable_entity }
-      end
-    end
+    @marker.update(marker_params)
+    # respond_to do |format|
+    #   if @marker.update(marker_params)
+    #     format.html { redirect_to marker_url(@marker), notice: "Marker was successfully updated." }
+    #     format.json { render :show, status: :ok, location: @marker }
+    #   else
+    #     format.html { render :edit, status: :unprocessable_entity }
+    #     format.json { render json: @marker.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /markers/1 or /markers/1.json
   def destroy
     @marker.destroy
 
-    respond_to do |format|
-      format.html { redirect_to markers_url, notice: "Marker was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to markers_url, notice: "Marker was successfully destroyed." }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

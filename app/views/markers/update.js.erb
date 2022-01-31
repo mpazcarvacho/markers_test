@@ -1,0 +1,9 @@
+document.getElementById(
+  "mark-<%= @marker.id%>"
+).innerHTML = `<li id='mark-<%=@marker.id%>'><a href="<% @marker.url%>"><%=@marker.title + '         |'%>  </a>
+                
+  <%= link_to 'show', markers_path(@marker), remote: true %>
+  
+  <%= link_to 'edit', edit_marker_path(@marker), remote: true %>
+  <%= link_to 'destroy', marker_path(@marker), remote: true, method: :delete %>
+</li>`;

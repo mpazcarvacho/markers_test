@@ -11,6 +11,7 @@ class HomeController < ApplicationController
   
   def chart
     @markers_per_category = CategoryMarker.group(:category_id).count.map{|c| [Category.find(c[0]).name, c[1]]}
+    @types_per_category = MarkerType.group(:type_id).count.map{|t| [Type.find(t[0]).name, t[1]]}
   end
 
   

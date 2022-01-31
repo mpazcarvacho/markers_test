@@ -12,6 +12,15 @@ class Category < ApplicationRecord
 
   validates :name, presence: true, uniqueness: :true
 
-  # TODO CREATE METHOD TO CHANGE PRIVACY SETTINGS OF CHILDREN
-  # after_save :update_privacy
+  # DONE CREATE METHOD TO CHANGE PRIVACY SETTINGS OF CHILDREN
+  before_update :change_private
+
+  def change_private
+    current_status = self.private
+    self.subcategories.each do |s|
+      s.private = current_status
+      s.save
+    end
+  end
+  
 end
