@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   has_many :category_markers
-  has_many :markers, through: :category_markers
+  has_many :markers, through: :category_markers, dependent: :destroy
   # has_and_belongs_to_many :markers
 
 

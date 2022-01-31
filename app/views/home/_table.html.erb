@@ -5,20 +5,30 @@
             <th scope="col">Markers</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="tbody">
         <%# TODO go throug parents. add buttons to show children only public %>
-          <% @categories.each do |category|%>
-          <tr>
-            <td><%= category.name%></td>
-            <td>
-              <ul>
-              <% marker_for_category(category).each do |m| %>
-                <li><a href="<% m.marker.url%>"><%=m.marker.title%></a></li>
-              <%end%>
-              </ul>
-            </td>
-          </tr>
-          <%end%>
+        
+          
+            <% @categories.each do |category|%>
+            <tr>
+              <td><%= category.name%></td>
+              <td>
+                <ul>
+                <% marker_for_category(category).each do |m| %>
+                
+                  <li id='mark-<%=m.marker.id%>'><a href="<% m.marker.url%>"><%=m.marker.title + '         |'%>  </a>
+                
+                  <%= link_to 'show', markers_path(m), remote: true %>
+                  <%= link_to 'edit', edit_marker_path(m), remote: true %>
+                  <%= link_to 'destroy', marker_path(m), remote: true, method: :delete %>
+                </li>
+                
+                <%end%>
+                </ul>
+              </td>
+            </tr>
+            <%end%>
+    
         </tbody>
       </table>
     

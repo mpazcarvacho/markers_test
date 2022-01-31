@@ -6,4 +6,6 @@ class HomeController < ApplicationController
     @types = Type.all
     @markers = Marker.all
   end
+
+  
 end

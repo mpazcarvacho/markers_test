@@ -1,13 +1,10 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
 
 <div class=container>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-4">
       <%= button_to "Add Marker", @marker, remote: true, class: "btn btn-success" %>
-      <div id="new_marker">
         <%= render '/markers/form', marker: @marker %>
+      <div id="new_marker">
         
       </div>
 
@@ -27,6 +24,7 @@
 
     </div>
     <div class="col-8">
+
       <%= render 'table' %>
     </div>
   </div>

@@ -23,6 +23,7 @@ class MarkersController < ApplicationController
   # POST /markers or /markers.json
   def create
     @marker = Marker.new(marker_params)
+    @categories = Category.all
 
     unless @marker.save
       render json: @marker.errors, status: :unprocessable_entity

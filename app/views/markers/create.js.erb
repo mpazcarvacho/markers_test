@@ -1,7 +1,13 @@
-let marker_title = document.createTextNode('<%= @marker.title%>')
-let div = document.createElement('div')
+let marker_title = document.createTextNode(
+  "<%= @marker.title%> was added succesfully!"
+);
+let div = document.querySelector("#new_marker");
 
-<%# TODO change place to show new marker added %>
-div.appendChild(marker_title)
-document.body.appendChild(div)
-console.log('<%=@marker.title%>')
+//  TODO change place to show new marker added
+div.appendChild(marker_title);
+// document.body.appendChild(div)
+console.log("<%=@marker.title%> was added succesfully!");
+//  alert('success')
+
+let tbody = document.querySelector("#tbody");
+//  tbody.innerHTML = ''
