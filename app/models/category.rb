@@ -8,6 +8,8 @@ class Category < ApplicationRecord
   
   belongs_to :parent, class_name: "Category", optional: :true
 
+  # accepts_nested_attributes_for :subcategories_attributes, allow_destroy: :true
+
   validates :name, presence: true, uniqueness: :true
 
   # TODO CREATE METHOD TO CHANGE PRIVACY SETTINGS OF CHILDREN

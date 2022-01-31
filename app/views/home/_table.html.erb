@@ -19,6 +19,7 @@
                   <li id='mark-<%=m.marker.id%>'><a href="<% m.marker.url%>"><%=m.marker.title + '         |'%>  </a>
                 
                   <%= link_to 'show', markers_path(m), remote: true %>
+                  
                   <%= link_to 'edit', edit_marker_path(m), remote: true %>
                   <%= link_to 'destroy', marker_path(m), remote: true, method: :delete %>
                 </li>

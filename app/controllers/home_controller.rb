@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @categories = Category.all
+    # DONE only display public categories
+    @categories = Category.where('private = ?', false)
     @marker = Marker.new
     @data = CategoryMarker.includes(:category, :marker)
     @types = Type.all

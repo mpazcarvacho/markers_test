@@ -2,25 +2,13 @@
 <div class=container>
   <div class="row mt-5">
     <div class="col-4">
-      <%= button_to "Add Marker", @marker, remote: true, class: "btn btn-success" %>
+
         <%= render '/markers/form', marker: @marker %>
       <div id="new_marker">
         
       </div>
 
       <hr>
-
-      <%= button_to "Add Category", @category, remote: true, class: "btn btn-success"%>
-      <div id="new_category">
-
-      </div>
-
-      <hr>
-
-      <%= button_to "Add Type", @type, remote: true, class: "btn btn-success"%>
-      <div id="new_type">
-
-</div>
 
     </div>
     <div class="col-8">
