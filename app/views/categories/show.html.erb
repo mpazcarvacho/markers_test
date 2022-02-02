@@ -9,6 +9,15 @@
   <strong>Private:</strong>
   <%= @category.private %>
 </p>
+<p>
+  <strong>Parent:</strong>
+  <%= @category.parent_id %>
+</p>
+
+<div>
+    <h3>API</h3>
+    <%= link_to 'Endpoint', endpoint_path(@category), class: 'btn btn-success' %>
+</div>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

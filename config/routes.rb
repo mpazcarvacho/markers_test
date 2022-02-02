@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   # ADD endpoint
   get '/categories/:id/endpoint', to: 'categories#endpoint', as: 'endpoint'
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
